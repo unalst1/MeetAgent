@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetAgent.Entities", "MeetAgent.Entities\MeetAgent.Entities.csproj", "{0B3AE106-8F86-4F31-AA1C-1198301F3CAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetAgent.DataAccess", "MeetAgent.DataAccess\MeetAgent.DataAccess.csproj", "{F8EA1337-C239-4808-9FA4-DDFB36987DD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetAgent.Business", "MeetAgent.Business\MeetAgent.Business.csproj", "{20D7282E-1C2E-4694-9B1A-625FA28598A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meett.API", "Meett.API\Meett.API.csproj", "{EDFF26AA-F6F7-47E4-8F2B-06AFBB9FCE57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B3AE106-8F86-4F31-AA1C-1198301F3CAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B3AE106-8F86-4F31-AA1C-1198301F3CAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B3AE106-8F86-4F31-AA1C-1198301F3CAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B3AE106-8F86-4F31-AA1C-1198301F3CAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8EA1337-C239-4808-9FA4-DDFB36987DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8EA1337-C239-4808-9FA4-DDFB36987DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8EA1337-C239-4808-9FA4-DDFB36987DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8EA1337-C239-4808-9FA4-DDFB36987DD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20D7282E-1C2E-4694-9B1A-625FA28598A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20D7282E-1C2E-4694-9B1A-625FA28598A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20D7282E-1C2E-4694-9B1A-625FA28598A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20D7282E-1C2E-4694-9B1A-625FA28598A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDFF26AA-F6F7-47E4-8F2B-06AFBB9FCE57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDFF26AA-F6F7-47E4-8F2B-06AFBB9FCE57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDFF26AA-F6F7-47E4-8F2B-06AFBB9FCE57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDFF26AA-F6F7-47E4-8F2B-06AFBB9FCE57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E1A4A71B-9D62-49F2-906C-822F9F122723}
+	EndGlobalSection
+EndGlobal

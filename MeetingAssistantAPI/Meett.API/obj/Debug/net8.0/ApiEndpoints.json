@@ -1,0 +1,156 @@
+[
+  {
+    "ContainingType": "MeetingAssistantAPI.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MeetingAssistantAPI.DTOs.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MeetingAssistantAPI.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/Auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MeetingAssistantAPI.DTOs.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MeetingAssistantAPI.Controllers.MailController",
+    "Method": "SendMail",
+    "RelativePath": "api/Mail/send",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MeetingAssistantAPI.DTOs.MailDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MeetingAssistantAPI.Controllers.MailController",
+    "Method": "SendSummary",
+    "RelativePath": "api/Mail/send-summary",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MeetingAssistantAPI.Controllers.SendSummaryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MeetingAssistantAPI.Controllers.MeetingController",
+    "Method": "CreateMeeting",
+    "RelativePath": "api/Meeting",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MeetingAssistantAPI.DTOs.MeetingDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MeetingAssistantAPI.Controllers.MeetingController",
+    "Method": "GetMeetings",
+    "RelativePath": "api/Meeting",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MeetingAssistantAPI.Controllers.MeetingController",
+    "Method": "GetMeeting",
+    "RelativePath": "api/Meeting/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MeetingAssistantAPI.Controllers.MeetingController",
+    "Method": "DeleteMeeting",
+    "RelativePath": "api/Meeting/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MeetingAssistantAPI.Controllers.MeetingController",
+    "Method": "ExtractTasks",
+    "RelativePath": "api/Meeting/extract-tasks",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "transcript",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MeetingAssistantAPI.Controllers.TaskController",
+    "Method": "CreateTrelloCard",
+    "RelativePath": "api/Task/trello",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MeetingAssistantAPI.DTOs.TaskDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
