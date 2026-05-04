@@ -1,4 +1,4 @@
-namespace MeetingAssistantAPI.DTOs;
+namespace MeetAgent.DTOs;
 
 public class TaskDto
 {

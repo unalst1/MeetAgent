@@ -1,4 +1,4 @@
-namespace MeetingAssistantAPI.Models;
+namespace MeetAgent.Models;
 
 public class Decision
 {

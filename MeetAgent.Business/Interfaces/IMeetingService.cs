@@ -1,7 +1,7 @@
-using MeetingAssistantAPI.DTOs;
-using MeetingAssistantAPI.Models;
+using MeetAgent.DTOs;
+using MeetAgent.Models;
 
-namespace MeetingAssistantAPI.Interfaces;
+namespace MeetAgent.Business.Interfaces;
 
 public interface IMeetingService
 {

@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MeetingAssistantAPI.Models;
-using MeetingAssistantAPI.Interfaces;
-using MeetingAssistantAPI.DTOs;
+using MeetAgent.Models;
+using MeetAgent.Business.Interfaces;
+using MeetAgent.DTOs;
 
-namespace MeetingAssistantAPI.Controllers;
+namespace MeetAgent.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

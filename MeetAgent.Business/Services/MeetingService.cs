@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using MeetingAssistantAPI.Data;
-using MeetingAssistantAPI.DTOs;
-using MeetingAssistantAPI.Interfaces;
-using MeetingAssistantAPI.Models;
+using MeetAgent.DataAccess;
+using MeetAgent.DTOs;
+using MeetAgent.Business.Interfaces;
+using MeetAgent.Models;
 
-namespace MeetingAssistantAPI.Services;
+namespace MeetAgent.Business.Services;
 
 public class MeetingService : IMeetingService
 {

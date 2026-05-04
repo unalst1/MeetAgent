@@ -1,12 +1,12 @@
 ﻿using GenerativeAI;
 
 
-using MeetingAssistantAPI.DTOs;
-using MeetingAssistantAPI.Interfaces;
+using MeetAgent.DTOs;
+using MeetAgent.Business.Interfaces;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json;
 
-namespace MeetingAssistantAPI.Services
+namespace MeetAgent.Business.Services
 {
     public class GeminiService : IGeminiService
     {

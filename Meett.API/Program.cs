@@ -2,9 +2,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using MeetingAssistantAPI.Data;
-using MeetingAssistantAPI.Services;
-using MeetingAssistantAPI.Interfaces;
+using MeetAgent.DataAccess; // AppDbContext için
+using MeetAgent.Business.Services; // Servis implementasyonlarý için
+using MeetAgent.Business.Interfaces;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -65,12 +66,14 @@ builder.Services.AddScoped<IMailService, MailService>();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IGeminiService, GeminiService>();
 
+
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
-    {
-        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-    });
+    options.AddPolicy("AllowAll",
+        builder => builder.AllowAnyOrigin()
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
 });
 
 var app = builder.Build();
@@ -78,6 +81,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseCors("AllowAll");
+app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();

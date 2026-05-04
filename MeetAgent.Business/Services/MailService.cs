@@ -1,10 +1,10 @@
 using MailKit.Net.Smtp;
 using MimeKit;
-using MeetingAssistantAPI.DTOs;
-using MeetingAssistantAPI.Interfaces;
+using MeetAgent.DTOs;
+using MeetAgent.Business.Interfaces;
 using Microsoft.Extensions.Configuration;
 
-namespace MeetingAssistantAPI.Services;
+namespace MeetAgent.Business.Services;
 
 public class MailService : IMailService
 {

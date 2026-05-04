@@ -1,7 +1,8 @@
-using Microsoft.EntityFrameworkCore;
-using MeetingAssistantAPI.Models;
 
-namespace MeetingAssistantAPI.Data;
+using Microsoft.EntityFrameworkCore;
+using MeetAgent.Models;
+
+namespace MeetAgent.DataAccess;
 
 public class AppDbContext : DbContext
 {

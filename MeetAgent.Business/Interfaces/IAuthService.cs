@@ -1,6 +1,6 @@
-using MeetingAssistantAPI.DTOs;
+using MeetAgent.DTOs;
 
-namespace MeetingAssistantAPI.Interfaces;
+namespace MeetAgent.Business.Interfaces;
 
 public interface IAuthService
 {

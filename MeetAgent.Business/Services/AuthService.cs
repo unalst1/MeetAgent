@@ -3,14 +3,14 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using MeetingAssistantAPI.Data;
-using MeetingAssistantAPI.DTOs;
-using MeetingAssistantAPI.Interfaces;
-using MeetingAssistantAPI.Models;
+using MeetAgent.DataAccess;
+using MeetAgent.DTOs;
+using MeetAgent.Business.Interfaces;
+using MeetAgent.Models;
 using Microsoft.Extensions.Configuration;
 using Org.BouncyCastle.Crypto.Generators;
 
-namespace MeetingAssistantAPI.Services;
+namespace MeetAgent.Business.Services;
 
 public class AuthService : IAuthService
 {
