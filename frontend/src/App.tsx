@@ -62,7 +62,7 @@ function App() {
                     "Content-Type": "application/json",
                 },
                 // Backend direkt [FromBody] string beklediği için metni JSON string olarak paketliyoruz
-                body: JSON.stringify(transcript)
+                body: JSON.stringify({ transcript: transcript })
             });
 
             if (response.ok) {
