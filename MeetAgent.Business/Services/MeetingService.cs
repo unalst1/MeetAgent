@@ -46,7 +46,7 @@ public class MeetingService : IMeetingService
             {
                 try
                 {
-                    var (cardId, cardUrl) = await _trelloService.CreateCard(t);
+                    var (cardId, cardUrl) = await _trelloService.CreateCardAsync(t);
                     task.TrelloCardId = cardId;
                     task.TrelloCardUrl = cardUrl;
                 }

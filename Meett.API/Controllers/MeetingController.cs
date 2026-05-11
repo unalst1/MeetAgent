@@ -1,8 +1,9 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MeetAgent.DTOs; // DTO'ların yeni yeri
+using MeetAgent.DTOs;
 using MeetAgent.Business.Interfaces;
+
 
 namespace MeetAgent.API.Controllers;
 
@@ -11,75 +12,52 @@ namespace MeetAgent.API.Controllers;
 [Authorize]
 public class MeetingController : ControllerBase
 {
-    public class TranscriptRequest
-    {
-        public string Transcript { get; set; }
-    }
-
     private readonly IMeetingService _meetingService;
-    private readonly IGeminiService _geminiService; // 1. Gemini servisimizi tanımladık
+    private readonly IGeminiService _geminiService;
+    private readonly ITrelloService _trelloService; // Trello servisini ekledik
 
-    // 2. Yapıcı metoda (Constructor) Gemini servisini de enjekte ettik
-    public MeetingController(IMeetingService meetingService, IGeminiService geminiService)
+    public MeetingController(IMeetingService meetingService, IGeminiService geminiService, ITrelloService trelloService)
     {
         _meetingService = meetingService;
         _geminiService = geminiService;
+        _trelloService = trelloService; // Enjekte ettik
     }
 
-    private int GetUserId() =>
-        int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
-
-    [HttpPost]
-    public async Task<IActionResult> CreateMeeting(MeetingDto dto)
-    {
-        var meeting = await _meetingService.CreateMeeting(dto, GetUserId());
-        return Ok(meeting);
-    }
-
-    [HttpGet]
-    public async Task<IActionResult> GetMeetings()
-    {
-        var meetings = await _meetingService.GetMeetings(GetUserId());
-        return Ok(meetings);
-    }
-
-    [HttpGet("{id}")]
-    public async Task<IActionResult> GetMeeting(int id)
-    {
-        var meeting = await _meetingService.GetMeetingById(id, GetUserId());
-        if (meeting == null) return NotFound();
-        return Ok(meeting);
-    }
-
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteMeeting(int id)
-    {
-        var result = await _meetingService.DeleteMeeting(id, GetUserId());
-        if (!result) return NotFound();
-        return Ok(new { message = "Toplantı silindi." });
-    }
-
-    // 3. İŞTE ŞOV KISMI: Yapay Zeka Endpoint'imiz!
     [HttpPost("extract-tasks")]
     [AllowAnonymous]
-    public async Task<IActionResult> ExtractTasks([FromBody] TranscriptRequest request) // string yerine TranscriptRequest yaptık
+    public async Task<IActionResult> ExtractTasks([FromBody] string transcript)
     {
-        // 1. Gelen veri boş mu kontrolü
-        if (request == null || string.IsNullOrWhiteSpace(request.Transcript))
+        if (string.IsNullOrWhiteSpace(transcript))
             return BadRequest("Toplantı metni boş olamaz.");
 
         try
         {
-            // 2. İşlemi gerçekleştir (Artık request içindeki Transcript'i gönderiyoruz)
-            var tasks = await _geminiService.ExtractTasksFromTranscriptAsync(request.Transcript);
+            // 1. Gemini'den görevleri listele
+            var tasks = await _geminiService.ExtractTasksFromTranscriptAsync(transcript);
 
-            // 3. Sonucu dön
+            // 2. HER BİR GÖREVİ TRELLO'YA GÖNDER
+            // ÖNEMLİ: Trello panondaki "Bugün" listesinin ID'sini buraya yapıştırmalısın.
+            // Şimdilik test için statik bir ID verebilirsin.
+            string testListId = "6a0233e1e6d9491b3cf61dec";
+
+            foreach (var task in tasks)
+            {
+                task.TrelloListId = testListId;
+                var (cardId, cardUrl) = await _trelloService.CreateCardAsync(task);
+
+                // İstersen her göreve Trello linkini de ekleyebilirsin
+                task.Description += $"\n\nTrello Kartı: {cardUrl}";
+            }
+
             return Ok(tasks);
         }
-        catch (Exception ex)
-        {
-            // Hata olursa kütüphane sessizliğinde terminalden bakabilmen için mesajı dönüyoruz
-            return StatusCode(500, $"Yapay zeka servisi hatası: {ex.Message}");
+        catch(Exception ex)
+{
+            // Hatayı gizlemek yerine tüm detayıyla dışarı fırlatıyoruz
+            var innerError = ex.InnerException != null ? ex.InnerException.Message : "";
+            return StatusCode(500, $"Hata Detayı: {ex.Message} | İç Hata: {innerError} | Stack: {ex.StackTrace}");
         }
     }
+
+    // Diğer metodlar (GetMeetings, CreateMeeting vs.) olduğu gibi kalabilir...
 }

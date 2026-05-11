@@ -56,13 +56,13 @@ function App() {
         setLoading(true);
         try {
             // NOT: Port numaran Swagger'da neyse (örn: 7154) onu kontrol et
-            const response = await fetch("https://localhost:7267/api/meeting/extract-tasks", {
+            const response = await fetch("http://localhost:5053/api/meeting/extract-tasks", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 // Backend direkt [FromBody] string beklediği için metni JSON string olarak paketliyoruz
-                body: JSON.stringify({ transcript: transcript })
+                body: JSON.stringify(transcript)
             });
 
             if (response.ok) {

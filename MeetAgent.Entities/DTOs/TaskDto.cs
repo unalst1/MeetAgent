@@ -7,4 +7,6 @@ public class TaskDto
     public string AssignedTo { get; set; } = string.Empty;
     public string? TrelloBoardId { get; set; }
     public string? TrelloListId { get; set; }
+
+
 }

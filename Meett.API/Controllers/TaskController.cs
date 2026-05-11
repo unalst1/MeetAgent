@@ -22,7 +22,7 @@ public class TaskController : ControllerBase
     {
         try
         {
-            var (cardId, cardUrl) = await _trelloService.CreateCard(dto);
+            var (cardId, cardUrl) = await _trelloService.CreateCardAsync(dto);
             return Ok(new { cardId, cardUrl });
         }
         catch (Exception ex)

@@ -61,11 +61,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IMeetingService, MeetingService>();
-builder.Services.AddScoped<ITrelloService, TrelloService>();
 builder.Services.AddScoped<IMailService, MailService>();
-builder.Services.AddHttpClient();
 builder.Services.AddScoped<IGeminiService, GeminiService>();
-
+builder.Services.AddScoped<ITrelloService, TrelloService>();
+builder.Services.AddHttpClient();
 
 
 builder.Services.AddCors(options =>
